@@ -57,4 +57,6 @@ public interface BeanLocal {
     List<WeekDay> getAllWeekDays();
 
     BigDecimal getNumberOfStudentsByFilter(Filter filter);
+
+    boolean groupAlreadyHasNLectures(WeekDay weekDay, Group group, int times);
 }

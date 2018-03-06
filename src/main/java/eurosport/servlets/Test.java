@@ -106,7 +106,7 @@ public class Test extends HttpServlet {
         for (WeekDay weekDay : bean.getWeekDays()) {
             for (int time = 0; time < 5; time++) {
                 if (group == null) {
-                    BigDecimal size=bean.getNumberOfStudentsByFilter(filter);
+                    BigDecimal size = bean.getNumberOfStudentsByFilter(filter);
                     if (added(groups, filter.getSubject(), filter.getTeacher(), weekDay, time + 1, LEC,
                             size.intValue(), notComputer)) {
                         return true;
@@ -128,6 +128,9 @@ public class Test extends HttpServlet {
             weekDay, int time, int roomType, int numberOfStudents, boolean notComputer) {
         for (Group group : groups) {
             if (bean.scheduleAlreadyHas(teacher, group, weekDay, time, subject)) {
+                return false;
+            }
+            if (roomType == LEC && bean.groupAlreadyHasNLectures(weekDay, group, 2)) {
                 return false;
             }
         }

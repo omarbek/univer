@@ -213,6 +213,18 @@ public class Bean implements BeanLocal {
         return size;
     }
 
+    @Override
+    public boolean groupAlreadyHasNLectures(WeekDay weekDay, Group group, int times) {
+        BigInteger size = (BigInteger) em.createNativeQuery("select count(1) from schedules " +
+                "where week_day_id=:weekDayId and group_id=:groupId and room_type_id=:roomTypeId")
+                .setParameter("weekDayId", weekDay.getId()).setParameter("groupId", group.getId())
+                .setParameter("roomTypeId", LECTURE).getSingleResult();
+        if (size.intValue() == times) {
+            return true;
+        }
+        return false;
+    }
+
     private List getRooms(int numberOfStudents, int roomTypeId) {
         return em.createNativeQuery("SELECT * FROM rooms " +
                 "where room_type_id!=:roomTypeId and capacity>:numberOfStudents " +
