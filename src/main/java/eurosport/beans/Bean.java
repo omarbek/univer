@@ -178,7 +178,7 @@ public class Bean implements BeanLocal {
 
     @Override
     public List<Room> getLectureRooms(int numberOfStudents) {
-        return getRooms(numberOfStudents, PRACTICE);//TODO check
+        return getRooms(numberOfStudents, PRACTICE);
     }
 
     @Override
