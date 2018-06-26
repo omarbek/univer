@@ -6,7 +6,6 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
@@ -223,6 +222,84 @@ public class Bean implements BeanLocal {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean lectureAfterThisTime(Group group, Subject subject, WeekDay weekDay, int time) {
+        List<Schedule> schedules = (List<Schedule>) em.createNativeQuery("SELECT * FROM schedules " +
+                "WHERE group_id=:groupId and subject_id=:subjectId and room_type_id=:roomTypeId", Schedule.class)
+                .setParameter("groupId", group.getId()).setParameter("subjectId", subject.getId())
+                .setParameter("roomTypeId", LECTURE).getResultList();
+        int weekDayOfLecture = getMin(schedules, true);
+        int timeOfLecture = getMin(schedules, false);
+        int resLecture = Integer.valueOf(weekDayOfLecture + "" + timeOfLecture);
+        int res = Integer.valueOf(weekDay.getId() + "" + time);
+        if (res < resLecture) {
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public void addTeacher(String fio) {
+        Teacher teacher = new Teacher();
+        teacher.setFio(fio);
+
+        em.persist(teacher);
+    }
+
+    @Override
+    public List<Teacher> getAllTeachers() {
+        return em.createQuery("select s from Teacher s", Teacher.class).getResultList();
+    }
+
+    @Override
+    public void deleteTeacher(Long id) {
+        Teacher teacher = (Teacher) em.createQuery("select t from Teacher t where t.id=:id")
+                .setParameter("id", id).getSingleResult();
+        em.remove(teacher);
+    }
+
+    @Override
+    public void addGroup(String name, Integer numberOfStudents) {
+        Group group = new Group();
+        group.setName(name);
+        group.setNumberOfStudents(numberOfStudents);
+        em.persist(group);
+    }
+
+    @Override
+    public void deleteGroup(Long id) {
+        Group group = (Group) em.createQuery("select t from Group t where t.id=:id")
+                .setParameter("id", id).getSingleResult();
+        em.remove(group);
+    }
+
+    @Override
+    public List<Room> getAllRooms() {
+        return em.createQuery("select s from Room s", Room.class).getResultList();
+    }
+
+    @Override
+    public List<RoomType> getAllRoomTypes() {
+        return em.createQuery("select s from RoomType s", RoomType.class).getResultList();
+    }
+
+    private int getMin(List<Schedule> schedules, boolean isDay) {
+        int min = 5;
+        for (Schedule schedule : schedules) {
+            if (isDay) {
+                if (schedule.getWeekDay().getId().intValue() < min) {
+                    min = schedule.getWeekDay().getId().intValue();
+                }
+            } else {
+                if (schedule.getLessonOrder() < min) {
+                    min = schedule.getLessonOrder();
+                }
+            }
+        }
+        return min;
     }
 
     private List getRooms(int numberOfStudents, int roomTypeId) {

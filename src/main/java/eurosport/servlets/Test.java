@@ -48,8 +48,28 @@ public class Test extends HttpServlet {
                     request.getRequestDispatcher("schedule.jsp").forward(request, response);
                 }
             }
+        } else if (page.equals("index")) {
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         } else if (page.equals("schedule")) {
             request.getRequestDispatcher("schedule.jsp").forward(request, response);
+        } else if (page.equals("teacher")) {
+            List<Teacher> teachers = bean.getAllTeachers();
+            request.setAttribute("teachers", teachers);
+            request.getRequestDispatcher("teacher.jsp").forward(request, response);
+        } else if (page.equals("subject")) {
+            request.getRequestDispatcher("subject.jsp").forward(request, response);
+        } else if (page.equals("room")) {
+            List<Room> rooms = bean.getAllRooms();
+            List<RoomType> roomTypes = bean.getAllRoomTypes();
+            request.setAttribute("rooms", rooms);
+            request.setAttribute("roomTypes", roomTypes);
+            request.getRequestDispatcher("room.jsp").forward(request, response);
+        } else if (page.equals("add_group")) {
+            List<Group> groups = bean.getAllGroups();
+            request.setAttribute("groups", groups);
+            request.getRequestDispatcher("add_group.jsp").forward(request, response);
+        } else if (page.equals("filter")) {
+            request.getRequestDispatcher("filter.jsp").forward(request, response);
         }
     }
 
@@ -65,6 +85,35 @@ public class Test extends HttpServlet {
 
             request.setAttribute("groups", groups);
             request.getRequestDispatcher("schedule.jsp").forward(request, response);
+        } else if (page.equals("add_teacher")) {
+            String fio = request.getParameter("fio");
+            bean.addTeacher(fio);
+
+            List<Teacher> teachers = bean.getAllTeachers();
+            request.setAttribute("teachers", teachers);
+            request.getRequestDispatcher("teacher.jsp").forward(request, response);
+        } else if (page.equals("delete_teacher")) {
+            Long id = Long.parseLong(request.getParameter("id"));
+            bean.deleteTeacher(id);
+
+            List<Teacher> teachers = bean.getAllTeachers();
+            request.setAttribute("teachers", teachers);
+            request.getRequestDispatcher("teacher.jsp").forward(request, response);
+        } else if (page.equals("add_group")) {
+            String name = request.getParameter("name");
+            Integer numberOfStudents = Integer.parseInt(request.getParameter("number_of_students"));
+            bean.addGroup(name, numberOfStudents);
+
+            List<Group> groups = bean.getAllGroups();
+            request.setAttribute("groups", groups);
+            request.getRequestDispatcher("add_group.jsp").forward(request, response);
+        } else if (page.equals("delete_group")) {
+            Long id = Long.parseLong(request.getParameter("id"));
+            bean.deleteGroup(id);
+
+            List<Group> groups = bean.getAllGroups();
+            request.setAttribute("groups", groups);
+            request.getRequestDispatcher("add_group.jsp").forward(request, response);
         }
     }
 
@@ -131,6 +180,9 @@ public class Test extends HttpServlet {
                 return false;
             }
             if (roomType == LEC && bean.groupAlreadyHasNLectures(weekDay, group, 2)) {
+                return false;
+            }
+            if (roomType == PRAC && bean.lectureAfterThisTime(group, subject, weekDay, time)) {
                 return false;
             }
         }

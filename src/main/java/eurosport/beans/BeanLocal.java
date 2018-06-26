@@ -59,4 +59,20 @@ public interface BeanLocal {
     BigDecimal getNumberOfStudentsByFilter(Filter filter);
 
     boolean groupAlreadyHasNLectures(WeekDay weekDay, Group group, int times);
+
+    boolean lectureAfterThisTime(Group group, Subject subject, WeekDay weekDay, int time);
+
+    void addTeacher(String fio);
+
+    List<Teacher> getAllTeachers();
+
+    void deleteTeacher(Long id);
+
+    void addGroup(String name, Integer numberOfStudents);
+
+    void deleteGroup(Long id);
+
+    List<Room> getAllRooms();
+
+    List<RoomType> getAllRoomTypes();
 }

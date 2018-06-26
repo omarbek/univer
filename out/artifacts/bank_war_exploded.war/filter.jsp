@@ -11,7 +11,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Schedule</title>
+    <title>Filter</title>
 </head>
 <body>
 <a href="info?page=index">Main</a>
