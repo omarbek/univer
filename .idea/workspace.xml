@@ -6,13 +6,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e91557bb-de05-496f-9b00-b8ce9c3f88cb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/eurosport/beans/Bean.java" afterPath="$PROJECT_DIR$/src/main/java/eurosport/beans/Bean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/eurosport/beans/BeanLocal.java" afterPath="$PROJECT_DIR$/src/main/java/eurosport/beans/BeanLocal.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/eurosport/servlets/Test.java" afterPath="$PROJECT_DIR$/src/main/java/eurosport/servlets/Test.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.jsp" afterPath="$PROJECT_DIR$/web/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/schedule.jsp" afterPath="$PROJECT_DIR$/web/schedule.jsp" />
+    <list default="true" id="e91557bb-de05-496f-9b00-b8ce9c3f88cb" name="Default" comment="practices are before lectures">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bank.iml" afterPath="$PROJECT_DIR$/bank.iml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -36,7 +33,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Test.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/eurosport/servlets/Test.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="155">
@@ -44,6 +41,16 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -136,6 +143,7 @@
         <option value="$PROJECT_DIR$/web/room.jsp" />
         <option value="$PROJECT_DIR$/web/teacher.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -163,7 +171,7 @@
     <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
@@ -263,6 +271,7 @@
     <property name="project.structure.proportion" value="0.15429688" />
     <property name="project.structure.side.proportion" value="0.22439586" />
     <property name="extract.method.default.visibility" value="private" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/.gitignore" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -475,7 +484,7 @@
       <workItem from="1520330647334" duration="12033000" />
       <workItem from="1520407718507" duration="792000" />
       <workItem from="1520415868143" duration="6185000" />
-      <workItem from="1530006967121" duration="270000" />
+      <workItem from="1530006967121" duration="911000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1520332452642</created>
@@ -498,11 +507,18 @@
       <option name="project" value="LOCAL" />
       <updated>1520336460273</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added gitignore">
+      <created>1530007845179</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1530007845179</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85781000" />
+    <option name="totallyTimeSpent" value="86422000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -514,7 +530,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.4969743" order="6" side_tool="false" content_ui="tabs" />
@@ -562,7 +579,8 @@
     <MESSAGE value="first commit" />
     <MESSAGE value="without &quot;at most 2 lectures per day&quot;" />
     <MESSAGE value="practices are before lectures" />
-    <option name="LAST_COMMIT_MESSAGE" value="practices are before lectures" />
+    <MESSAGE value="added gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="added gitignore" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -584,7 +602,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/profile.jsp" />
     <entry file="file://$PROJECT_DIR$/src/main/java/eurosport/beans/UserBean.java" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa5764.39535/Test.java" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa5764.40845/PostBean.java" />
@@ -849,6 +866,14 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
